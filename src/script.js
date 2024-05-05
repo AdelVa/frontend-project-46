@@ -1,1 +1,1 @@
-export const parseFile = (file) => JSON.parce(file);
+export const parseFile = (file) => JSON.parse(file);

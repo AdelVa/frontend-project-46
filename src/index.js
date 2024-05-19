@@ -1,6 +1,7 @@
 import * as fs from "node:fs";
 import path from "node:path";
 import { parseFile } from "./script.js";
+import { getComparison } from "./getcomp.js";
 
 const getPath = (filepath) => path.resolve(process.cwd(), filepath);
 
@@ -11,7 +12,7 @@ const genDiff = (filepath1, filepath2) => {
   const readFile2 = fs.readFileSync(file2, { encoding: "utf-8" });
   const dataFile1 = parseFile(readFile1);
   const dataFile2 = parseFile(readFile2);
-  return { dataFile1, dataFile2 };
+  return getComparison(dataFile1, dataFile2);
 };
 
 export default genDiff;

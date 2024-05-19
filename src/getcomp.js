@@ -1,4 +1,4 @@
-import _ from "lodash";
+import _ from 'lodash';
 
 export const getComparison = (data1, data2) => {
   const keys1 = Object.keys(data1);
@@ -12,44 +12,44 @@ export const getComparison = (data1, data2) => {
 
     // случай: ключ удален
     if (!Object.hasOwn(data2, key)) {
-      return { type: "deleted", key, valueOld };
+      return { type: 'deleted', key, valueOld };
     }
     // случай ключ добавлен
     if (!Object.hasOwn(data1, key)) {
-      return { type: "new key added", key, valueNew };
+      return { type: 'new key added', key, valueNew };
     }
     // случай: значение ключа изменилось
     // случай: нет изменений
     if (data1[key] !== data2[key]) {
-      return { type: "changed", key, valueOld, valueNew };
-    } else {
-      return { type: "no changes", key, valueOld };
+      return {
+        type: 'changed',
+        key,
+        valueOld,
+        valueNew,
+      };
     }
+    return { type: 'no changes', key, valueOld };
   };
 
   const result = jointKeys.flatMap((key) => compareKeys(key));
 
-  const spacerSmall = `  `;
-  const spacerBig = `    `;
+  const spacerSmall = '  ';
+  const spacerBig = '    ';
 
   const changeAlert = (item) => {
     switch (item.type) {
-      case "no changes":
+      case 'no changes':
         return `${spacerBig}${item.key}: ${item.valueOld}`;
-        break;
-      case "changed":
+      case 'changed':
         return (
-          `${spacerSmall}- ${item.key}: ${item.valueOld}` +
-          `\n` +
-          `${spacerSmall}+ ${item.key}:${item.valueNew}`
+          `${spacerSmall}- ${item.key}: ${item.valueOld}`
+          + '\n'
+          + `${spacerSmall}+ ${item.key}:${item.valueNew}`
         );
-        break;
-      case "deleted":
+      case 'deleted':
         return `${spacerSmall}- ${item.key}: ${item.valueOld}`;
-        break;
-      case "new key added":
+      case 'new key added':
         return `${spacerSmall}+ ${item.key}: ${item.valueNew}`;
-        break;
       default:
         throw new Error(`Unexpected out of range value - ${item.type}`);
     }
@@ -57,7 +57,7 @@ export const getComparison = (data1, data2) => {
 
   const formattedResult = result.map((item) => changeAlert(item));
 
-  return `{\n${formattedResult.join("\n")}` + `\n}`;
+  return `{\n${formattedResult.join('\n')}` + '\n}';
 };
 
 export default getComparison;

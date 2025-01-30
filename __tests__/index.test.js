@@ -14,7 +14,7 @@ const readFile = (filename) =>
 test("test 1", () => {
   const file1 = getFixturePath("file1.json");
   const file2 = getFixturePath("file2.json");
-  const expected = readFile("expected_file.json");
+  const expected = readFile("expected_file.txt");
 
-  expect(genDiff(file1, file2)).toEqual(expected);
+  expect(genDiff(file1, file2)).toEqual(expected.trim());
 });

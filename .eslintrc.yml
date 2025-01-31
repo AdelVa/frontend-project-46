@@ -5,4 +5,4 @@ extends: airbnb-base
 parserOptions:
   ecmaVersion: latest
   sourceType: module
-rules: { "import/extensions": ["error", { "js": "ignorePackages" }] }
+rules: { 'import/extensions': ['error', { 'js': 'ignorePackages' }] }

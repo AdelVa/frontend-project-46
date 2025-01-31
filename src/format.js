@@ -1,8 +1,8 @@
-import stylish from "./stylish.js";
+import * as stylish from './stylish.js';
 
-export const getFormat = (tree, format = "stylish") => {
+export const getFormat = (tree, format = 'stylish') => {
   switch (format) {
-    case "stylish":
+    case 'stylish':
       return stylish(tree);
     default:
       throw new Error(`Unexpected out of range value - ${format}!`);

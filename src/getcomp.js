@@ -1,4 +1,4 @@
-import _ from "lodash";
+import _ from 'lodash';
 
 export const getComparison = (data1, data2) => {
   const keys1 = Object.keys(data1);
@@ -12,23 +12,23 @@ export const getComparison = (data1, data2) => {
 
     // случай: ключ удален
     if (!Object.hasOwn(data2, key)) {
-      return { type: "deleted", key, valueOld };
+      return { type: 'deleted', key, valueOld };
     }
     // случай: ключ добавлен
     if (!Object.hasOwn(data1, key)) {
-      return { type: "new key added", key, valueNew };
+      return { type: 'new key added', key, valueNew };
     }
     // случай: значение ключа изменилось
     // случай: нет изменений
     if (data1[key] !== data2[key]) {
       return {
-        type: "changed",
+        type: 'changed',
         key,
         valueOld,
         valueNew,
       };
     }
-    return { type: "no changes", key, valueOld };
+    return { type: 'no changes', key, valueOld };
   });
   return result;
 };

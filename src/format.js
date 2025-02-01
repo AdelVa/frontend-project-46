@@ -1,4 +1,4 @@
-import * as stylish from './stylish.js';
+import stylish from './stylish.js';
 
 export const getFormat = (tree, format = 'stylish') => {
   switch (format) {

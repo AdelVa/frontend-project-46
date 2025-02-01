@@ -1,7 +1,7 @@
 const spacerSmall = '  ';
 const spacerBig = '    ';
 
-export const stylish = (tree) => {
+const stylish = (tree) => {
   const formattedResult = tree.map((item) => {
     switch (item.type) {
       case 'no changes':

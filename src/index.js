@@ -14,7 +14,7 @@ const getExt = (filepath) => {
   return fileExt;
 };
 
-const genDiff = (filepath1, filepath2, format = 'stylish') => {
+const genDiff = (filepath1, filepath2) => {
   const file1 = getPath(filepath1);
   const file2 = getPath(filepath2);
 

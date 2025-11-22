@@ -26,7 +26,7 @@ const stylish = (tree, depth = 1) => {
       case 'changed':
         return `${indent}- ${item.key}: ${stringify(
           item.valueOld,
-          depth + 1
+          depth + 1,
         )}\n${indent}+ ${item.key}: ${stringify(item.valueNew, depth + 1)}`;
       case 'nested':
         return `${indent}  ${item.key}: ${stylish(item.children, depth + 1)}`;

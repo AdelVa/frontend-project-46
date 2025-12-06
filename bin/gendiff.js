@@ -11,8 +11,10 @@ program
   .option('-f, --format [type]', 'output format', 'stylish')
   .argument('filepath1', 'Path to the first file.')
   .argument('filepath2', 'Path to the second file.')
-  .action((filepath1, filepath2) => {
-    console.log(genDiff(filepath1, filepath2));
+  .action((filepath1, filepath2, option) => {
+    const { format } = option;
+
+    console.log(genDiff(filepath1, filepath2, format));
   });
 
 program.parse();

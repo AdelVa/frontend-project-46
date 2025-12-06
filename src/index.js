@@ -1,8 +1,8 @@
 import * as fs from 'node:fs';
 import path from 'node:path';
-import { parseFile } from './script.js';
-import { getComparison } from './getcomp.js';
-import { getFormat } from './format.js';
+import parseFile from './script.js';
+import getComparison from './getcomp.js';
+import getFormat from './formatters/index.js';
 
 const getPath = (filepath) => path.resolve(process.cwd(), filepath);
 
@@ -14,7 +14,7 @@ const getExt = (filepath) => {
   return fileExt;
 };
 
-const genDiff = (filepath1, filepath2) => {
+const genDiff = (filepath1, filepath2, format) => {
   const file1 = getPath(filepath1);
   const file2 = getPath(filepath2);
 
@@ -28,8 +28,12 @@ const genDiff = (filepath1, filepath2) => {
   const dataSet2 = parseFile(fileData2, fileExt2);
 
   const compResult = getComparison(dataSet1, dataSet2);
-  const formattedResult = getFormat(compResult);
-  return formattedResult;
+  const formattedResult = getFormat(format);
+  if (!formattedResult) {
+    throw new Error(`Format ${format} is not supported`);
+  }
+
+  return `${formattedResult(compResult)}`;
 };
 
 export default genDiff;

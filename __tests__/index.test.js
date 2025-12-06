@@ -32,3 +32,11 @@ test('test stylish', () => {
 
   expect(genDiff(file1, file2, 'stylish')).toEqual(expected);
 });
+
+test('test plain', () => {
+  const file1 = getFixturePath('file1.json');
+  const file2 = getFixturePath('file2.json');
+  const expected = readFile('expected_file_plain.txt').trim();
+
+  expect(genDiff(file1, file2, 'plain')).toEqual(expected);
+});

@@ -2,8 +2,6 @@
 [![Actions Status](https://github.com/AdelVa/frontend-project-46/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/AdelVa/frontend-project-46/actions)
 ### SonarQube Badge
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=AdelVa_frontend-project-46&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=AdelVa_frontend-project-46)
-### Test Coverage Badge:
-[![Test Coverage](https://api.codeclimate.com/v1/badges/1f9d79c928780bc67fe6/test_coverage)](https://codeclimate.com/github/AdelVa/frontend-project-46/test_coverage)
 ### Build Check:
 ![Build Check](https://github.com/AdelVa/frontend-project-46/actions/workflows/github-actions-demo.yml/badge.svg)
 

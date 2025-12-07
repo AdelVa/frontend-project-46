@@ -11,32 +11,32 @@ const valueType = (value) => {
 };
 
 const plain = (tree) => {
-  const result = (item, path) => {
+  const iter = (item, path) => {
     const property = `${path}${item.key}`;
 
     switch (item.type) {
+      case 'added':
+        return `Property '${property}' was added with value: ${valueType(
+          item.value
+        )}`;
+      case 'deleted':
+        return `Property '${property}' was removed`;
       case 'changed':
         return `Property '${property}' was updated. From ${valueType(
-          item.valueOld,
+          item.valueOld
         )} to ${valueType(item.valueNew)}`;
       case 'nested':
         return item.children
-          .map((child) => result(child, `${property}.`))
+          .map((child) => iter(child, `${property}.`))
           .filter(Boolean)
           .join('\n');
-      case 'deleted':
-        return `Property '${property}' was removed`;
-      case 'new key added':
-        return `Property '${property}' was added with value: ${valueType(
-          item.value,
-        )}`;
       default:
         return null;
     }
   };
 
   return tree
-    .flatMap((item) => result(item, ''))
+    .flatMap((item) => iter(item, ''))
     .filter(Boolean)
     .join('\n');
 };

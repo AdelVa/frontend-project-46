@@ -17,13 +17,13 @@ const plain = (tree) => {
     switch (item.type) {
       case 'added':
         return `Property '${property}' was added with value: ${valueType(
-          item.value
+          item.value,
         )}`;
       case 'deleted':
         return `Property '${property}' was removed`;
       case 'changed':
         return `Property '${property}' was updated. From ${valueType(
-          item.valueOld
+          item.valueOld,
         )} to ${valueType(item.valueNew)}`;
       case 'nested':
         return item.children

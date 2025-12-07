@@ -1,5 +1,5 @@
 name: Build
-run-name: GenDiffBuild
+run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
 on: [push]
 env:
   CI: true

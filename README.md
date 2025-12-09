@@ -1,9 +1,7 @@
-### Hexlet tests and linter status:
+### Badges
 [![Actions Status](https://github.com/AdelVa/frontend-project-46/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/AdelVa/frontend-project-46/actions)
-### SonarQube Badge
-[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=AdelVa_frontend-project-46&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=AdelVa_frontend-project-46)
-### Build Check:
 ![Build Check](https://github.com/AdelVa/frontend-project-46/actions/workflows/github-actions-demo.yml/badge.svg)
+[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=AdelVa_frontend-project-46&metric=sqale_rating)](https://sonarcloud.io/summary/new_code?id=AdelVa_frontend-project-46)
 
 ### Asciinema footage
 <a href="https://asciinema.org/a/OuISH0RllpoS1SnhwaFMnZNhK" target="_blank">[gendiff json]</a>
